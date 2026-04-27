@@ -1,0 +1,22 @@
+@page
+@{
+    ViewData["Title"] = "Нет доступа";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div style="min-height:60vh; display:flex; align-items:center; justify-content:center; text-align:center">
+    <div>
+        <div style="font-family:var(--font-head); font-size:6rem; font-weight:800; color:var(--border); letter-spacing:-0.05em; line-height:1">
+            403
+        </div>
+        <div style="font-family:var(--font-head); font-size:1.5rem; font-weight:700; margin-bottom:0.75rem">
+            Доступ запрещён
+        </div>
+        <p class="text-muted" style="max-width:360px; margin:0 auto 2rem; line-height:1.6">
+            У вас нет прав для просмотра этой страницы. Обратитесь к администратору.
+        </p>
+        <a asp-page="/Index" class="btn btn-ghost" style="width:auto; display:inline-flex">
+            ← На главную
+        </a>
+    </div>
+</div>

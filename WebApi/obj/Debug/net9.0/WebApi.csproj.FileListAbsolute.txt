@@ -159,3 +159,4 @@ C:\Users\user\Desktop\C_SHARP\exam11\WebApi\bin\Debug\net9.0\Serilog.Sinks.Conso
 C:\Users\user\Desktop\C_SHARP\exam11\WebApi\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
 C:\Users\user\Desktop\C_SHARP\exam11\WebApi\bin\Debug\net9.0\Serilog.Sinks.File.dll
 C:\Users\user\Desktop\C_SHARP\exam11\WebApi\bin\Debug\net9.0\WebApi.staticwebassets.runtime.json
+C:\Users\user\Desktop\C_SHARP\exam11\WebApi\obj\Debug\net9.0\WebApi.sourcelink.json

@@ -152,3 +152,107 @@ LIMIT 2
 2026-04-23 16:33:48.210 +03:00 [INF] Hosting environment: Development
 2026-04-23 16:33:48.210 +03:00 [INF] Content root path: C:\Users\user\Desktop\C_SHARP\exam11\WebApi
 2026-04-23 16:33:51.548 +03:00 [INF] Application is shutting down...
+2026-04-23 16:36:29.113 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 16:36:30.800 +03:00 [INF] Executed DbCommand (71ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:36:30.907 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:36:30.909 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:36:30.931 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedEmail_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2026-04-23 16:36:31.148 +03:00 [INF] Now listening on: http://localhost:5260
+2026-04-23 16:36:31.150 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 16:36:31.150 +03:00 [INF] Hosting environment: Development
+2026-04-23 16:36:31.150 +03:00 [INF] Content root path: C:\Users\user\Desktop\C_SHARP\exam11\WebApi
+2026-04-23 16:37:34.310 +03:00 [INF] Application is shutting down...
+2026-04-23 16:37:44.581 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 16:37:46.666 +03:00 [INF] Executed DbCommand (68ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:37:46.749 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:37:46.750 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:37:46.768 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2026-04-23 16:37:46.986 +03:00 [INF] Now listening on: http://localhost:5260
+2026-04-23 16:37:46.990 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 16:37:46.990 +03:00 [INF] Hosting environment: Development
+2026-04-23 16:37:46.990 +03:00 [INF] Content root path: C:\Users\user\Desktop\C_SHARP\exam11\WebApi
+2026-04-23 16:44:44.614 +03:00 [INF] Application is shutting down...
+2026-04-23 16:45:51.568 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 16:45:53.675 +03:00 [INF] Executed DbCommand (70ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:45:53.762 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:45:53.764 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:45:53.785 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2026-04-23 16:45:53.973 +03:00 [INF] Now listening on: http://localhost:5260
+2026-04-23 16:45:53.975 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 16:45:53.975 +03:00 [INF] Hosting environment: Development
+2026-04-23 16:45:53.975 +03:00 [INF] Content root path: C:\Users\user\Desktop\C_SHARP\exam11\WebApi
+2026-04-23 16:50:28.708 +03:00 [INF] Application is shutting down...
+2026-04-23 16:56:13.504 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-23 16:56:15.653 +03:00 [INF] Executed DbCommand (65ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:56:15.796 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:56:15.799 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2026-04-23 16:56:15.826 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedEmail_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2026-04-23 16:56:16.025 +03:00 [INF] Now listening on: http://localhost:5260
+2026-04-23 16:56:16.027 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-23 16:56:16.027 +03:00 [INF] Hosting environment: Development
+2026-04-23 16:56:16.027 +03:00 [INF] Content root path: C:\Users\user\Desktop\C_SHARP\exam11\WebApi
+2026-04-23 17:14:37.743 +03:00 [INF] Application is shutting down...

@@ -13,3 +13,4 @@ C:\Users\user\Desktop\C_SHARP\exam11\Application\obj\Debug\net9.0\Application.dl
 C:\Users\user\Desktop\C_SHARP\exam11\Application\obj\Debug\net9.0\refint\Application.dll
 C:\Users\user\Desktop\C_SHARP\exam11\Application\obj\Debug\net9.0\Application.pdb
 C:\Users\user\Desktop\C_SHARP\exam11\Application\obj\Debug\net9.0\ref\Application.dll
+C:\Users\user\Desktop\C_SHARP\exam11\Application\obj\Debug\net9.0\Application.sourcelink.json

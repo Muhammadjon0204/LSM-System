@@ -9,11 +9,6 @@ public class CategoryRepository(AppDbContext context) : ICategoryRepository
 {
     public async Task<Category> AddAsync(Category item)
     {
-        if (item == null)
-        {
-            return null;
-        }
-
         await context.Categories.AddAsync(item);
         await context.SaveChangesAsync();
         return item;
