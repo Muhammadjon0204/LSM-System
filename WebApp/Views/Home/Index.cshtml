@@ -1,0 +1,460 @@
+﻿@{
+    ViewData["Title"] = "Главная";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+<style>
+    :root {
+        --cream:         #FDFCF8;
+        --ink:           #12100E;
+        --ink-muted:     #5A5650;
+        --gold:          #D97706;
+        --gold-light:    #FEF3C7;
+        --violet:        #4338CA;
+        --violet-light:  #EEF2FF;
+        --emerald:       #047857;
+        --emerald-light: #ECFDF5;
+        --border:        rgba(18,16,14,0.10);
+        --shadow-md:     0 8px 32px rgba(18,16,14,0.10);
+        --shadow-lg:     0 24px 64px rgba(18,16,14,0.13);
+    }
+
+    @@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap');
+
+    .landing-page * { box-sizing: border-box; }
+
+    /* ── HERO ── */
+    .hero {
+        min-height: calc(100vh - 70px);
+        display: flex; align-items: center;
+        padding: 5rem 5% 4rem;
+        position: relative; overflow: hidden;
+        background: var(--cream);
+    }
+    .blob {
+        position: absolute; border-radius: 50%;
+        filter: blur(80px); opacity: .35;
+        animation: blobFloat 8s ease-in-out infinite;
+        pointer-events: none;
+    }
+    .blob-1 { width:500px;height:500px; background:radial-gradient(circle,#FEF3C7,#D97706); top:-120px;right:-80px; animation-delay:0s; }
+    .blob-2 { width:380px;height:380px; background:radial-gradient(circle,#EEF2FF,#4338CA); bottom:0;left:-100px; animation-delay:-3s; }
+    .blob-3 { width:280px;height:280px; background:radial-gradient(circle,#ECFDF5,#047857); top:50%;left:40%; animation-delay:-5s; }
+
+    @@keyframes blobFloat {
+        0%,100%{ transform:translate(0,0) scale(1); }
+        33%    { transform:translate(20px,-30px) scale(1.07); }
+        66%    { transform:translate(-15px,15px) scale(.95); }
+    }
+
+    .particles-canvas { position:absolute; inset:0; pointer-events:none; }
+    .particle {
+        position:absolute; border-radius:50%; opacity:.22;
+        animation:particleDrift linear infinite;
+    }
+    @@keyframes particleDrift {
+        0%  { transform:translateY(0) rotate(0deg); opacity:.22; }
+        100%{ transform:translateY(-110vh) rotate(720deg); opacity:0; }
+    }
+
+    .hero-content { position:relative; z-index:2; max-width:700px; }
+
+    .hero-badge {
+        display:inline-flex; align-items:center; gap:.5rem;
+        background:var(--gold-light); color:var(--gold);
+        border:1px solid rgba(217,119,6,.25);
+        padding:.35rem 1rem; border-radius:50px;
+        font-size:.78rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+        margin-bottom:1.4rem;
+        animation:fadeInUp .7s .2s ease both;
+    }
+    .hero-badge::before {
+        content:''; width:6px; height:6px; border-radius:50%;
+        background:var(--gold); animation:pulseDot 1.5s infinite;
+    }
+    @@keyframes pulseDot { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.6);opacity:.5} }
+
+    .hero-title {
+        font-family:'Fraunces',serif;
+        font-size:clamp(2.8rem,6.5vw,6rem);
+        font-weight:900; line-height:.95; letter-spacing:-0.04em;
+        color:var(--ink);
+        animation:fadeInUp .7s .35s ease both;
+    }
+    .hero-title em { font-style:italic; color:var(--gold); display:block; }
+    .hero-title .outline { -webkit-text-stroke:2px var(--ink); color:transparent; }
+
+    .hero-sub {
+        margin-top:1.4rem; font-family:'Outfit',sans-serif;
+        font-size:1.1rem; line-height:1.65; color:var(--ink-muted);
+        max-width:490px; font-weight:300;
+        animation:fadeInUp .7s .5s ease both;
+    }
+
+    .hero-actions {
+        display:flex; gap:1rem; flex-wrap:wrap; margin-top:2.2rem;
+        animation:fadeInUp .7s .65s ease both;
+    }
+
+    .btn-hero {
+        display:inline-flex; align-items:center; gap:.4rem;
+        padding:.8rem 1.8rem; border-radius:50px;
+        font-family:'Outfit',sans-serif; font-size:.95rem; font-weight:600;
+        cursor:pointer; border:none; text-decoration:none;
+        transition:transform .18s, box-shadow .18s;
+    }
+    .btn-hero:hover { transform:translateY(-2px); }
+    .btn-hero-gold  { background:var(--gold); color:#fff; box-shadow:0 4px 16px rgba(217,119,6,.4); }
+    .btn-hero-gold:hover  { background:#b45309; color:#fff; box-shadow:0 6px 22px rgba(217,119,6,.5); }
+    .btn-hero-ghost { background:transparent; color:var(--ink); border:1.5px solid var(--border); }
+    .btn-hero-ghost:hover { background:var(--gold-light); border-color:var(--gold); color:var(--ink); }
+
+    .hero-stats { display:flex; gap:2.5rem; margin-top:3.5rem; animation:fadeInUp .7s .8s ease both; }
+    .stat-num {
+        font-family:'Fraunces',serif;
+        font-size:1.9rem; font-weight:700; line-height:1; color:var(--ink);
+    }
+    .stat-label { font-size:.75rem; color:var(--ink-muted); font-weight:500; text-transform:uppercase; letter-spacing:.05em; }
+
+    /* floating card */
+    .hero-card-wrap {
+        position:absolute; right:6%; top:50%; transform:translateY(-50%);
+        z-index:2;
+        animation:fadeInRight .9s .6s ease both, cardFloat 5s 1.5s ease-in-out infinite;
+    }
+    @@keyframes cardFloat {
+        0%,100%{ transform:translateY(-50%); }
+        50%    { transform:translateY(calc(-50% - 14px)); }
+    }
+    @@keyframes fadeInRight {
+        from{ opacity:0; transform:translateY(-50%) translateX(60px); }
+        to  { opacity:1; transform:translateY(-50%); }
+    }
+
+    .h-card {
+        background:#fff; border-radius:20px;
+        border:1px solid var(--border); box-shadow:var(--shadow-lg);
+        padding:1.4rem; min-width:250px;
+    }
+    .h-card-mini {
+        background:#fff; border-radius:14px;
+        border:1px solid var(--border); box-shadow:var(--shadow-md);
+        padding:.9rem 1.1rem; margin-top:.65rem;
+    }
+    .h-card-head { display:flex; align-items:center; gap:.65rem; margin-bottom:.9rem; }
+    .h-card-mini .h-card-head { margin-bottom:0; }
+    .av {
+        width:36px; height:36px; border-radius:50%;
+        display:flex; align-items:center; justify-content:center;
+        font-family:'Outfit',sans-serif; font-size:1rem; font-weight:700;
+    }
+    .av-gold    { background:var(--gold-light);    color:var(--gold); }
+    .av-violet  { background:var(--violet-light);  color:var(--violet); }
+    .av-emerald { background:var(--emerald-light); color:var(--emerald); }
+    .av-name { font-size:.82rem; font-weight:600; color:var(--ink); }
+    .av-role { font-size:.7rem;  color:var(--ink-muted); }
+
+    .progress-bar  { height:6px; background:#F3F4F6; border-radius:99px; overflow:hidden; }
+    .progress-fill {
+        height:100%; border-radius:99px;
+        background:linear-gradient(90deg,var(--gold),var(--violet));
+        animation:progressGrow 2s 1.2s ease both; transform-origin:left;
+    }
+    @@keyframes progressGrow { from{width:0} }
+
+    /* sections */
+    .landing-section { padding:5.5rem 5%; }
+    .bg-white   { background:#fff; }
+    .bg-dark    { background:var(--ink); color:var(--cream); }
+    .bg-grad    { background:linear-gradient(135deg,var(--gold-light),var(--violet-light)); }
+
+    .sec-label {
+        font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+        color:var(--gold); margin-bottom:.65rem; font-family:'Outfit',sans-serif;
+    }
+    .sec-title {
+        font-family:'Fraunces',serif;
+        font-size:clamp(1.9rem,3.5vw,3rem);
+        font-weight:700; line-height:1.1; letter-spacing:-0.03em;
+    }
+    .sec-sub { margin-top:.7rem; font-size:1rem; line-height:1.6; color:var(--ink-muted); max-width:500px; }
+    .bg-dark .sec-sub   { color:rgba(253,252,248,.55); }
+    .bg-dark .sec-title { color:var(--cream); }
+
+    /* roles */
+    .roles-grid {
+        display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+        gap:1.4rem; margin-top:2.8rem;
+    }
+    .role-card {
+        border-radius:20px; padding:1.75rem;
+        border:1px solid var(--border);
+        transition:transform .25s, box-shadow .25s;
+    }
+    .role-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+    .role-card.student    { background:var(--violet-light); }
+    .role-card.instructor { background:var(--gold-light); }
+    .role-card.admin      { background:var(--emerald-light); }
+
+    .role-icon {
+        width:50px; height:50px; border-radius:14px;
+        display:flex; align-items:center; justify-content:center;
+        font-size:1.5rem; margin-bottom:1.1rem;
+    }
+    .role-card.student .role-icon    { background:rgba(67,56,202,.15); }
+    .role-card.instructor .role-icon { background:rgba(217,119,6,.2); }
+    .role-card.admin .role-icon      { background:rgba(4,120,87,.2); }
+
+    .role-name { font-family:'Fraunces',serif; font-size:1.3rem; font-weight:700; margin-bottom:.45rem; }
+    .role-desc { font-size:.875rem; color:var(--ink-muted); line-height:1.55; }
+    .role-perms { margin-top:1.1rem; display:flex; flex-direction:column; gap:.4rem; }
+    .perm { display:flex; align-items:center; gap:.5rem; font-size:.8rem; font-weight:500; }
+    .perm-ok { color:var(--emerald); }
+    .perm-ok::before { content:'✓'; font-weight:700; }
+    .perm-no { color:var(--ink-muted); text-decoration:line-through; }
+    .perm-no::before { content:'×'; }
+
+    /* features */
+    .features-grid {
+        display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:1.2rem; margin-top:2.8rem;
+    }
+    .feature-card {
+        padding:1.6rem; border-radius:16px;
+        border:1px solid var(--border); background:#fff;
+        transition:transform .2s, box-shadow .2s;
+    }
+    .feature-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+    .feature-icon  { font-size:1.8rem; margin-bottom:.9rem; }
+    .feature-title { font-weight:600; font-size:.95rem; margin-bottom:.35rem; color:var(--ink); }
+    .feature-desc  { font-size:.84rem; color:var(--ink-muted); line-height:1.55; }
+
+    /* steps */
+    .steps {
+        display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+        gap:2rem; margin-top:3rem;
+    }
+    .step-num {
+        font-family:'Fraunces',serif;
+        font-size:3.5rem; font-weight:900; line-height:1;
+        color:var(--gold); opacity:.4;
+    }
+    .step-title { font-size:1rem; font-weight:600; margin-top:.5rem; }
+    .step-desc  { font-size:.84rem; color:rgba(253,252,248,.5); line-height:1.6; margin-top:.4rem; }
+
+    /* cta */
+    .cta-inner { text-align:center; max-width:600px; margin:0 auto; }
+    .cta-actions { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:2.2rem; }
+
+    /* reveal */
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    @@keyframes fadeInUp {
+        from{ opacity:0; transform:translateY(24px); }
+        to  { opacity:1; transform:none; }
+    }
+
+    @@media (max-width:900px) { .hero-card-wrap { display:none; } }
+    @@media (max-width:600px) { .hero-stats { gap:1.4rem; } }
+</style>
+}
+
+<div class="landing-page">
+
+<!-- HERO -->
+<section class="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="particles-canvas" id="particles"></div>
+
+    <div class="hero-content">
+        <div class="hero-badge">🎓 Платформа нового поколения</div>
+        <h1 class="hero-title">
+            Учись.<br>
+            <em>Создавай.</em>
+            <span class="outline">Управляй.</span>
+        </h1>
+        <p class="hero-sub">EduPlatform — современная система управления курсами для студентов, инструкторов и администраторов.</p>
+        <div class="hero-actions">
+            <a asp-controller="Auth" asp-action="Register" class="btn-hero btn-hero-gold">Начать бесплатно →</a>
+            <a href="#roles" class="btn-hero btn-hero-ghost">Узнать больше</a>
+        </div>
+        <div class="hero-stats">
+            <div><div class="stat-num" data-target="3">0</div><div class="stat-label">Роли</div></div>
+            <div><div class="stat-num" data-target="5">0</div><div class="stat-label">Курсов</div></div>
+            <div><div class="stat-num" data-target="24">0</div><div class="stat-label">Часа / 7 дней</div></div>
+        </div>
+    </div>
+
+    <div class="hero-card-wrap">
+        <div class="h-card">
+            <div class="h-card-head">
+                <div class="av av-violet">А</div>
+                <div><div class="av-name">Мухаммад Косимов</div><div class="av-role">👨‍🎓 Студент</div></div>
+            </div>
+            <div style="font-size:.78rem;color:#5A5650;margin-bottom:.45rem;">С# для средних — 88%</div>
+            <div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div>
+        </div>
+        <div class="h-card-mini">
+            <div class="h-card-head">
+                <div class="av av-gold">М</div>
+                <div><div class="av-name">Аличон Забиров</div><div class="av-role">👩‍🏫 Инструктор — опубликовала курс</div></div>
+            </div>
+        </div>
+        <div class="h-card-mini">
+            <div class="h-card-head">
+                <div class="av av-emerald">A</div>
+                <div><div class="av-name">Устод Масафи</div><div class="av-role">🛡️ Управление платформой</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ROLES -->
+<section class="landing-section bg-white" id="roles">
+    <div class="reveal">
+        <div class="sec-label">Роли пользователей</div>
+        <h2 class="sec-title">Три роли — одна платформа</h2>
+        <p class="sec-sub">Каждый получает именно тот функционал, который нужен.</p>
+    </div>
+    <div class="roles-grid">
+        <div class="role-card student reveal">
+            <div class="role-icon">🎓</div>
+            <div class="role-name">Студент</div>
+            <p class="role-desc">Назначается автоматически при регистрации. Учись в своём темпе.</p>
+            <div class="role-perms">
+                <div class="perm perm-ok">Просмотр доступных курсов</div>
+                <div class="perm perm-ok">Запись на курсы</div>
+                <div class="perm perm-ok">Отслеживание прогресса</div>
+                <div class="perm perm-no">Создание курсов</div>
+                <div class="perm perm-no">Управление пользователями</div>
+            </div>
+        </div>
+        <div class="role-card instructor reveal">
+            <div class="role-icon">👩‍🏫</div>
+            <div class="role-name">Инструктор</div>
+            <p class="role-desc">Создавай свои курсы и управляй ими. Следи за своими студентами.</p>
+            <div class="role-perms">
+                <div class="perm perm-ok">Создание курсов</div>
+                <div class="perm perm-ok">Редактирование своих курсов</div>
+                <div class="perm perm-ok">Управление записями</div>
+                <div class="perm perm-no">Управление чужими курсами</div>
+                <div class="perm perm-no">Управление пользователями</div>
+            </div>
+        </div>
+        <div class="role-card admin reveal">
+            <div class="role-icon">🛡️</div>
+            <div class="role-name">Администратор</div>
+            <p class="role-desc">Полный контроль над платформой, пользователями и всеми курсами.</p>
+            <div class="role-perms">
+                <div class="perm perm-ok">Управление всеми курсами</div>
+                <div class="perm perm-ok">Управление пользователями</div>
+                <div class="perm perm-ok">Назначение ролей</div>
+                <div class="perm perm-ok">Полная аналитика</div>
+                <div class="perm perm-ok">Системные настройки</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="landing-section" id="features">
+    <div class="reveal">
+        <div class="sec-label">Возможности</div>
+        <h2 class="sec-title">Всё что нужно для обучения</h2>
+        <p class="sec-sub">Мощный набор инструментов для каждой роли.</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card reveal"><div class="feature-icon">🔐</div><div class="feature-title">Безопасная авторизация</div><p class="feature-desc">JWT токены, ролевая модель и защищённые API эндпоинты.</p></div>
+        <div class="feature-card reveal"><div class="feature-icon">📚</div><div class="feature-title">Каталог курсов</div><p class="feature-desc">Список всех доступных курсов с фильтрацией и поиском.</p></div>
+        <div class="feature-card reveal"><div class="feature-icon">✏️</div><div class="feature-title">Редактор курсов</div><p class="feature-desc">Инструкторы создают и редактируют курсы через удобный интерфейс.</p></div>
+        <div class="feature-card reveal"><div class="feature-icon">📊</div><div class="feature-title">Аналитика</div><p class="feature-desc">Прогресс студентов и статистика активности платформы.</p></div>
+        <div class="feature-card reveal"><div class="feature-icon">👥</div><div class="feature-title">Управление пользователями</div><p class="feature-desc">Администраторы управляют ролями и правами доступа.</p></div>
+        <div class="feature-card reveal"><div class="feature-icon">⚡</div><div class="feature-title">REST API</div><p class="feature-desc">WebAPI бэкенд на ASP.NET Core для интеграции с любым фронтом.</p></div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="landing-section bg-dark" id="how">
+    <div class="reveal">
+        <div class="sec-label">Как это работает</div>
+        <h2 class="sec-title">Три шага до первого курса</h2>
+        <p class="sec-sub">Простой и понятный процесс для каждого пользователя.</p>
+    </div>
+    <div class="steps">
+        <div class="step reveal"><div class="step-num">01</div><div class="step-title">Регистрация</div><p class="step-desc">Создай аккаунт — автоматически получаешь роль Студента.</p></div>
+        <div class="step reveal"><div class="step-num">02</div><div class="step-title">Выбери курс</div><p class="step-desc">Просматривай каталог и записывайся на интересные курсы.</p></div>
+        <div class="step reveal"><div class="step-num">03</div><div class="step-title">Начни учиться</div><p class="step-desc">Проходи материалы в своём темпе, отслеживай прогресс.</p></div>
+        <div class="step reveal"><div class="step-num">04</div><div class="step-title">Стань инструктором</div><p class="step-desc">Получи роль Инструктора и создай свой первый курс.</p></div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="landing-section bg-grad">
+    <div class="cta-inner reveal">
+        <div class="sec-label">Начни прямо сейчас</div>
+        <h2 class="sec-title">Готов к новым знаниям?</h2>
+        <p class="sec-sub" style="margin:0 auto">Регистрация бесплатна и занимает меньше минуты.</p>
+        <div class="cta-actions">
+            <a asp-controller="Auth" asp-action="Register" class="btn-hero btn-hero-gold">Создать аккаунт →</a>
+            <a asp-controller="Auth" asp-action="Login" class="btn-hero btn-hero-ghost">Уже есть аккаунт? Войти</a>
+        </div>
+    </div>
+</section>
+
+</div>
+
+@section Scripts {
+<script>
+    // Particles
+    const canvas = document.getElementById('particles');
+    ['#D97706','#4338CA','#047857'].forEach((color, ci) => {
+        for (let i = 0; i < 5; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            const size = Math.random() * 5 + 3;
+            Object.assign(p.style, {
+                width: size+'px', height: size+'px',
+                left: Math.random()*100+'%',
+                bottom: '-10px',
+                background: color,
+                animationDuration: (Math.random()*12+8)+'s',
+                animationDelay: (Math.random()*8)+'s'
+            });
+            canvas.appendChild(p);
+        }
+    });
+
+    // Scroll reveal
+    new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting)
+                setTimeout(() => e.target.classList.add('visible'), i * 80);
+        });
+    }, { threshold: 0.1 }).observe
+        ? document.querySelectorAll('.reveal').forEach(el =>
+            new IntersectionObserver((entries) => {
+                entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.1 }).observe(el)
+          )
+        : document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+
+    // Counters
+    document.querySelectorAll('[data-target]').forEach(el => {
+        new IntersectionObserver(([entry]) => {
+            if (!entry.isIntersecting) return;
+            const target = +el.dataset.target;
+            const suffix = target === 24 ? '/7' : target === 100 ? '+' : '';
+            let cur = 0, step = Math.ceil(target/40);
+            const id = setInterval(() => {
+                cur = Math.min(cur + step, target);
+                el.textContent = cur + suffix;
+                if (cur >= target) clearInterval(id);
+            }, 35);
+        }, { threshold: 0.5 }).observe(el);
+    });
+</script>
+}
